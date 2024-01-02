@@ -1,0 +1,3 @@
+mapbox_impl could be faulty 
+mapbox code = 
+pk.eyJ1IjoidGFyaXFiaXZpamkiLCJhIjoiY2xsNTY0d3JtMGQxdjNlbzF2b2loNm40aCJ9.AZajFCsj0ImNT2zgkcF45Q
