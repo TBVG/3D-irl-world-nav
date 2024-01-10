@@ -1,17 +1,18 @@
-import mapbox
-from mapbox import Geocoder, Directions
-import mapboxgl
-access_token = 'pk.eyJ1IjoidGFyaXFiaXZpamkiLCJhIjoiY2xsNTY0d3JtMGQxdjNlbzF2b2loNm40aCJ9.AZajFCsj0ImNT2zgkcF45Q'
+#import mapboxgl
+
+#access_token = 'pk.eyJ1IjoidGFyaXFiaXZpamkiLCJhIjoiY2xsNTY0d3JtMGQxdjNlbzF2b2loNm40aCJ9.AZajFCsj0ImNT2zgkcF45Q'
+
 # Set access token
-def set_api_keys(access_token):
-  mapbox.access_token = access_token
+#mapboxgl.accessToken = access_token
 
-def create_mapbox_map():
-  return mapboxgl.Map()
+# Create Mapbox map
+#def create_mapbox_map():
+ #   return mapboxgl.Map()
 
-def create_mapbox_directions():
-  return Directions()
+# Create Mapbox directions
+#def create_mapbox_directions():
+  #  return mapboxgl.Directions()
 
-# Pass access token
-def create_mapbox_geocoder(access_token):
-  return Geocoder(access_token=access_token)
+# Create Mapbox geocoder
+#def create_mapbox_geocoder():
+ #   return mapboxgl.Geocoder(access_token=access_token)
