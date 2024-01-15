@@ -1,35 +1,26 @@
-
-
 import tkinter as tk
 from tkinter import ttk
-import folium
-from geopy.geocoders import Nominatim
+from cesium_map import CesiumNavigationApp
+from routing import get_route, GraphHopper
 
-# Initialize map 
-map = folium.Map(location=[20, 0], zoom_start=2)
+class NavigationAppGUI:
+    def __init__(self, cesium_app):
+        self.cesium_app = cesium_app
+        self.root = tk.Tk()
+        self.setup_ui()
 
-# Initialize Nominatim geocoder
-geocoder = Nominatim(user_agent="myapp")
+    def setup_ui(self):
+        entry = ttk.Entry(self.root)
+        entry.grid(row=0, column=0)
 
-# Initialize GUI
-root = tk.Tk()
+        search_btn = ttk.Button(
+            self.root, text="Search", command=lambda: self.search(entry.get())
+        )
+        search_btn.grid(row=0, column=1)
 
-def search():
-    location = entry.get()
-    location = geocoder.geocode(location)
+        self.root.mainloop()
 
-    popup = folium.Popup(location[0], max_width=300)
-    folium.Marker([location.latitude, location.longitude], popup=popup).add_to(map)
-    
-    map.location = [location.latitude, location.longitude]
-
-entry = ttk.Entry(root)
-entry.grid(row=0, column=0)
-
-search_btn = ttk.Button(root, text="Search", command=search)
-search_btn.grid(row=0, column=1)
-
-# Display map
-map.add_to(root)
-
-root.mainloop()
+    def search(self, destination):
+        route = get_route(destination)
+        self.cesium_app.add_route_to_map(route)
+        self.cesium_app.fly_to_coordinates(route[0])

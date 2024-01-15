@@ -1,5 +1,3 @@
-
-
 from geopy.geocoders import Nominatim
 
 geocoder = Nominatim(user_agent="myapp")
