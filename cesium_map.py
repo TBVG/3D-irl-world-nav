@@ -1,3 +1,4 @@
+# cesium_map.py
 import cesiumpy
 
 class CesiumNavigationApp:

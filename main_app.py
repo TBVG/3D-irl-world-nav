@@ -1,7 +1,8 @@
+# main_app.py
 import tkinter as tk
 from tkinter import ttk
 from cesium_map import CesiumNavigationApp
-from routing import get_route, GraphHopper
+from routing import get_route, GraphHopperExtended
 
 class NavigationAppGUI:
     def __init__(self, cesium_app):
@@ -24,3 +25,4 @@ class NavigationAppGUI:
         route = get_route(destination)
         self.cesium_app.add_route_to_map(route)
         self.cesium_app.fly_to_coordinates(route[0])
+        self.cesium_app.start_navigation()
