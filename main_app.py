@@ -19,6 +19,11 @@ class NavigationAppGUI:
         )
         search_btn.grid(row=0, column=1)
 
+        toggle_camera_btn = ttk.Button(
+            self.root, text="Toggle Camera", command=self.toggle_camera_perspective
+        )
+        toggle_camera_btn.grid(row=0, column=2)
+
         self.root.mainloop()
 
     def search(self, destination):
@@ -26,3 +31,7 @@ class NavigationAppGUI:
         self.cesium_app.add_route_to_map(route)
         self.cesium_app.fly_to_coordinates(route[0])
         self.cesium_app.start_navigation()
+
+    def toggle_camera_perspective(self):
+        # Call the toggle_camera_perspective method of CesiumNavigationApp
+        self.cesium_app.toggle_camera_perspective()
