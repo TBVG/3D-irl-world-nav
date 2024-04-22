@@ -2,7 +2,7 @@
 import tkinter as tk
 from tkinter import ttk
 from cesium_map import CesiumNavigationApp
-from routing import get_route, GraphHopperExtended
+from routing import get_route
 
 class NavigationAppGUI:
     def __init__(self, cesium_app):
@@ -35,3 +35,11 @@ class NavigationAppGUI:
     def toggle_camera_perspective(self):
         # Call the toggle_camera_perspective method of CesiumNavigationApp
         self.cesium_app.toggle_camera_perspective()
+
+def run_app():
+    cesium_app = CesiumNavigationApp()
+    gui_app = NavigationAppGUI(cesium_app)
+    cesium_app.start_navigation()
+
+if __name__ == "__main__":
+    run_app()
